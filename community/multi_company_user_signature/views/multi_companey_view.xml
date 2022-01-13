@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="multi_companey_users_form" model="ir.ui.view">
+            <field name="name">res.users.form.inherit.user</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+            	 <xpath expr="//group[@name='preferences']" position="before">
+                        <field name="hide_us" string="Hide" invisible="1"/>
+                        <separator string="Multi Company User Signature" colspan="4" attrs="{'invisible': [('company_ids', '&lt;=', 1)]}"/>
+                        <field name="res_users"  widget="section_and_note_one2many" mode="tree" attrs="{'invisible': [('company_ids', '&lt;=', 1)]}">
+                    		<tree>
+                    				<field name="user_id" string="User" readonly="1" invisible="1"/>
+                                    <field name="company_id"/>
+                    				<field name="bool_hed" invisible='1'/>
+                                    <field name="user_signature" position="replace" options="{'style-inline': true}"/>
+                    		</tree>
+                        </field>
+            	</xpath>
+                <xpath expr="//field[@name='signature']" position="attributes">
+                    <attribute  name="attrs"> {'invisible': [('hide_us','=',False)]}</attribute>
+                </xpath> 
+            </field>
+    </record>
+</odoo>
