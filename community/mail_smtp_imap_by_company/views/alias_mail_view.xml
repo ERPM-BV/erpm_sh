@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="alias_mail_company_form" model="ir.ui.view">
+            <field name="name">alias.mail.form</field>
+            <field name="model">alias.mail</field>
+            <field name="arch" type="xml">
+                <form string="Alias">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="domain_name"/>
+                                <field name="company_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="alias_mail_company_tree" model="ir.ui.view">
+            <field name="name">alias.mail.tree</field>
+            <field name="model">alias.mail</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="domain_name"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_alias_mail" model="ir.actions.act_window">
+            <field name="name">Alias Domains</field>
+            <field name="res_model">alias.mail</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+        </record>
+        
+        <record id="view_mail_alias_form_inherit" model="ir.ui.view">
+            <field name="name">mail.alias.form.inherit</field>
+            <field name="model">mail.alias</field>
+            <field name="inherit_id" ref="mail.view_mail_alias_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='alias_domain']" position="replace">
+                    <field name="alias_domain"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="crm_lead_view_form_inherit" model="ir.ui.view">
+            <field name="name">crm.team.form.inherit</field>
+            <field name="model">crm.team</field>
+            <field name="inherit_id" ref="crm.sales_team_form_view_in_crm"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='alias_domain']" position="replace">
+                    <field name="alias_domain" class="oe_inline" readonly="0"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="edit_project_inherit" model="ir.ui.view">
+            <field name="name">project.project.form.inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='alias_domain'][1]" position="replace">
+                    <field name="alias_domain" class="oe_inline oe_edit_only" readonly="0"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="project_project_view_form_simplified_smtp" model="ir.ui.view">
+            <field name="name">project.project.view.form.simplified.smtp</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.project_project_view_form_simplified"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//field[@name='alias_domain']" position="replace">
+            		<field name="alias_domain" class="oe_inline" readonly="0" />
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="view_account_journal_form_inherit" model="ir.ui.view">
+            <field name="name">account.journal.form.inherit</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='alias_domain']" position="replace">
+                	<field name="alias_domain" class="oe_inline" readonly="0"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="hr_job_simple_form_smtp" model="ir.ui.view">
+	        <field name="name">hr.job.simple.form.smtp</field>
+	        <field name="model">hr.job</field>
+	        <field name="inherit_id" ref="hr_recruitment.hr_job_simple_form"/>
+	        <field name="arch" type="xml">
+	        	<xpath expr="//field[@name='alias_domain']" position="replace">
+	        		<field name="alias_domain" class="oe_inline" readonly="0"/>
+                </xpath>
+	        </field>
+        </record>
+        
+        <record id="hr_job_survey_smtp" model="ir.ui.view">
+	        <field name="name">hr.job.form1.smtp</field>
+	        <field name="model">hr.job</field>
+	        <field name="inherit_id" ref="hr_recruitment.hr_job_survey"/>
+	        <field name="arch" type="xml">
+	        	<xpath expr="//field[@name='alias_domain']" position="replace">
+	        		<field name="alias_domain" class="oe_inline" readonly="0"/>
+                </xpath>
+	        </field>
+        </record>
+        
+        <menuitem id="alias_mail_menu"
+                name="Alias Domains"
+                parent="base.menu_email"
+                action="action_alias_mail"
+                sequence="50"/>
+    </data>
+</odoo>

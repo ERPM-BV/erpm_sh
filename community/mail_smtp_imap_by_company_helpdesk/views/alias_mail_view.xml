@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="helpdesk_team_view_form_smtp_inherit" model="ir.ui.view">
+            <field name="name">helpdesk.team.form.smtp.inherit</field>
+            <field name="model">helpdesk.team</field>
+            <field name="inherit_id" ref="helpdesk.helpdesk_team_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='alias_domain']" position="replace">
+                    <field name="alias_domain" class="oe_inline" readonly="0"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
