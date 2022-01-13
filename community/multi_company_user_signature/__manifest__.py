@@ -20,7 +20,7 @@
 ###############################################################################
 {
     'name': "Multi Company User Signature",
-    'version': '15.0.0.1',
+    'version': '15.0.0.1.1',
     'category': 'Mail',
     'license': 'Other proprietary',
     'summary': "Geminate comes with the feature of mutl company based user email signature where users can configure different email signatures for all the companies which they are allowed to work with either parent or child. so when sending an email out from odoo, it will pick the correct email signature configured under user settings and append that in the email. It helps you to digitize your personalized email signature company specifically where users can easily decide their opinion on which signatures are added for this company.",
@@ -29,7 +29,7 @@
     """,
     'author': "Geminate Consultancy Services",
     'website': 'http://www.geminatecs.com',
-    'depends': ['base',],
+    'depends': ['base', 'mail'],
     'data': [
         "security/ir.model.access.csv",
         "data/mail_data_view.xml",
