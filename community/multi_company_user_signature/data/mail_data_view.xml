@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="multiple_mail_signature_footer" inherit_id="mail.mail_notification_paynow">
+        <xpath expr="//div[@t-if='record.user_id.sudo().signature']" position="replace">
+        		<t t-set="bool_vali" t-value="False"/>
+                <t t-foreach="record.user_id.res_users" t-as="line" style="font-size: 13px;">
+                	<t t-if="line.company_id.id == company.id and line.user_id.id == request.env.user.id">
+                		<div t-raw="line.user_signature"/>
+                		<t t-set="bool_vali" t-value="True"/>
+                	</t>
+                </t>
+                <t t-if="bool_vali == False">
+                	<div t-raw="record.user_id.signature"/>
+                </t>
+        </xpath>
+                   
+    </template>
+</odoo>
