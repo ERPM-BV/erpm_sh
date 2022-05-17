@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="password_key_archive" model="ir.actions.server">
+            <field name="name">Archive passwords</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="odoo_password_manager.model_password_key" />
+            <field name="state">code</field>
+            <field name="code">
+if records:
+    records.write({"active": False})
+            </field>
+        </record>
+
+        <record id="password_key_restore" model="ir.actions.server">
+            <field name="name">Restore passwords</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="odoo_password_manager.model_password_key"/>
+            <field name="state">code</field>
+            <field name="code">
+if records:
+    records.write({"active": True})
+            </field>
+        </record>
+
+        <record id="password_key_upd_tags" model="ir.actions.server">
+            <field name="name">Update tags</field>
+            <field name="model_id" ref="odoo_password_manager.model_password_key"/>
+            <field name="state">code</field>
+            <field name="code">
+action = env.ref("odoo_password_manager.update_password_tag_action").sudo().read()[0]
+            </field>
+        </record>
+
+        <record id="password_key_upd_partner" model="ir.actions.server">
+            <field name="name">Update partner</field>
+            <field name="model_id" ref="odoo_password_manager.model_password_key"/>
+            <field name="state">code</field>
+            <field name="code">
+action = env.ref("odoo_password_manager.update_password_partner_action").sudo().read()[0]
+            </field>
+        </record>
+
+        <record id="password_key_add_to_favourite" model="ir.actions.server">
+            <field name="name">Add to favourite</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="odoo_password_manager.model_password_key"/>
+            <field name="state">code</field>
+            <field name="code">
+if records:
+    user = env.user.id
+    records.sudo().write({"favourite_user_ids": [(4, env.user.id)]})
+            </field>
+        </record>
+
+        <record id="password_key_remove_from_favourite" model="ir.actions.server">
+            <field name="name">Remove from favourite</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="odoo_password_manager.model_password_key"/>
+            <field name="state">code</field>
+            <field name="code">
+if records:
+    user = env.user.id
+    records.sudo().write({"favourite_user_ids": [(3, user)]})
+            </field>
+        </record>
+
+        <record id="password_key_unlink" model="ir.actions.server">
+            <field name="name">Delete</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="odoo_password_manager.model_password_key"/>
+            <field name="state">code</field>
+            <field name="code">
+if records:
+    user = env.user.id
+    records.unlink()
+            </field>
+        </record>
+
+        <record id="mail_activity_data_update_password" model="mail.activity.type">
+            <field name="name">Update Password</field>
+            <field name="icon">fa-lock</field>
+            <field name="delay_count">0</field>
+            <field name="sequence">98</field>
+        </record>
+
+    </data>
+</odoo>

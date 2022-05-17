@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Bundles -->
+        <record id="password_bundle_read_rule" model="ir.rule">
+            <field name="name">Password Bundles Read Rule</field>
+            <field name="model_id" ref="odoo_password_manager.model_password_bundle"/>
+            <field name="domain_force">[
+                "|",
+                    ("create_uid", "in", [user.id]),
+                    ("has_read_right_to", "=", user.id),
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+        <record id="password_bundle_write_rule" model="ir.rule">
+            <field name="name">Password Bundles Write Rule</field>
+            <field name="model_id" ref="odoo_password_manager.model_password_bundle"/>
+            <field name="domain_force">[
+                "|",
+                    ("create_uid", "in", [user.id]),
+                    ("has_admin_right_to", "=", user.id),
+            ]</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+        <!-- Access levels -->
+        <record id="password_access_read_rule" model="ir.rule">
+            <field name="name">Password Levels Read Rule</field>
+            <field name="model_id" ref="odoo_password_manager.model_password_access"/>
+            <field name="domain_force">[
+                "|",
+                    ("bundle_id.create_uid", "in", [user.id]),
+                    ("bundle_id.has_read_right_to", "=", user.id),
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+        <record id="password_access_write_rule" model="ir.rule">
+            <field name="name">Password Levels Write Rule</field>
+            <field name="model_id" ref="odoo_password_manager.model_password_access"/>
+            <field name="domain_force">[
+                "|",
+                    ("bundle_id.create_uid", "in", [user.id]),
+                    ("bundle_id.has_admin_right_to", "=", user.id),
+            ]</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+        <!-- Passwords -->
+        <record id="password_key_read_rule" model="ir.rule">
+            <field name="name">Password Read Rule</field>
+            <field name="model_id" ref="odoo_password_manager.model_password_key"/>
+            <field name="domain_force">[
+                "|",
+                    ("bundle_id.create_uid", "in", [user.id]),
+                    ("bundle_id.has_read_right_to", "=", user.id),
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+        <record id="password_key_write_rule" model="ir.rule">
+            <field name="name">Password Write Rule</field>
+            <field name="model_id" ref="odoo_password_manager.model_password_key"/>
+            <field name="domain_force">[
+                "|",
+                    ("bundle_id.create_uid", "in", [user.id]),
+                    ("bundle_id.has_full_right_to", "=", user.id),
+            ]</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+        <!-- Tags -->
+        <record id="password_tag_read_rule" model="ir.rule">
+            <field name="name">Password Tag Read Rule</field>
+            <field name="model_id" ref="odoo_password_manager.model_password_tag"/>
+            <field name="domain_force">[
+                "|",
+                    ("bundle_id.create_uid", "in", [user.id]),
+                    ("bundle_id.has_read_right_to", "=", user.id),
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+        <record id="password_tag_write_rule" model="ir.rule">
+            <field name="name">Password Tag Write Rule</field>
+            <field name="model_id" ref="odoo_password_manager.model_password_tag"/>
+            <field name="domain_force">[
+                "|",
+                    ("bundle_id.create_uid", "in", [user.id]),
+                    ("bundle_id.has_full_right_to", "=", user.id),
+            ]</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+    </data>
+
+</odoo>

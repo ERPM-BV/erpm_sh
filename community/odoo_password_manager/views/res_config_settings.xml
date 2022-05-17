@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.product.management</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block"
+                     data-string="Password Manager"
+                     string="Password Manager"
+                     data-key="odoo_password_manager"
+                     name="odoo_password_manager"
+                >
+                    <h2>Password Manager Options</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div name="export_option"
+                             class="col-xs-12 col-md-6 o_setting_box"
+                        >
+                            <div name="export_option_1" class="o_setting_left_pane">
+                                <field name="password_management_export_option"/>
+                            </div>
+                            <div name="export_option_2" class="o_setting_right_pane">
+                                <label for="password_management_export_option"/>
+                                <div name="export_option_hint" class="text-muted">
+                                    Let users export found and selected passwords
+                                </div>
+                            </div>
+                        </div>
+                        <div name="gen_on_create_option"
+                             class="col-xs-12 col-md-6 o_setting_box"
+                        >
+                            <div name="gen_on_createh_option_1" class="o_setting_left_pane">
+                                <field name="generate_passord_on_create"/>
+                            </div>
+                            <div name="gen_on_create_option_2" class="o_setting_right_pane">
+                                <label for="generate_passord_on_create"/>
+                                <div name="gen_on_create_option_hint" class="text-muted">
+                                    If checked Odoo would automatically generate a paraphrase as soon as a new password
+                                    is registered
+                                </div>
+                            </div>
+                        </div>
+                        <div name="password_length_option"
+                             class="col-xs-12 col-md-6 o_setting_box"
+                        >
+                            <div name="password_length_option_1" class="o_setting_left_pane">
+
+                            </div>
+                            <div name="password_length_option_2" class="o_setting_right_pane">
+                                <label for="defau_password_length"/>
+                                <div name="password_length_option_hint" class="text-muted">
+                                    How long should be generated passwords by default
+                                </div>
+                                <field name="defau_password_length"/>
+                            </div>
+                        </div>
+                        <div name="charset_option"
+                             class="col-xs-12 col-md-6 o_setting_box"
+                        >
+                            <div name="charset_option_1" class="o_setting_left_pane">
+
+                            </div>
+                            <div name="charset_option_2" class="o_setting_right_pane">
+                                <label for="defau_password_charset"/>
+                                <div name="charset_option_hint" class="text-muted">
+                                    Define how generated passwords should look like by default
+                                </div>
+                                <field name="defau_password_charset"/>
+                            </div>
+                        </div>
+                        <div name="custom_field_option"
+                             class="col-xs-12 col-md-6 o_setting_box"
+                        >
+                            <div name="custom_field_option_1" class="o_setting_left_pane">
+                                <field name="module_odoo_password_manager_custom_fields"/>
+                            </div>
+                            <div name="custom_field_option_2" class="o_setting_right_pane">
+                                <label for="module_odoo_password_manager_custom_fields"/>
+                                <div name="custom_field_option_hint" class="text-muted">
+                                    Turn on to prepare custom fields for passwords. The tool
+                                    <a href='https://apps.odoo.com/apps/modules/15.0/odoo_password_manager_custom_fields/'>
+                                        Password Manager: Custom Fields
+                                    </a> (38 Euros extra) is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>Mass actions</h2>
+                    <div class="row mt16 o_settings_container">
+                        <field name="passwords_ir_actions_server_ids"/>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="res_config_settings_password_manager_action" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'odoo_password_manager'}</field>
+    </record>
+
+</odoo>
