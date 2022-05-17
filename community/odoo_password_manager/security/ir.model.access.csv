@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_password_key,access_password_key,model_password_key,base.group_user,1,1,1,1
+access_password_tag,access_password_tag,model_password_tag,base.group_user,1,1,1,1
+access_password_bundle,access_password_bundle,model_password_bundle,base.group_user,1,1,1,1
+access_password_access,access_password_access,model_password_access,base.group_user,1,1,1,1
+access_update_password_partner,access_update_password_partner,model_update_password_partner,base.group_user,1,1,1,1
+access_bundle_login,access_bundle_login,model_bundle_login,base.group_user,1,1,1,1
+access_password_generator,access_password_generator,model_password_generator,base.group_user,1,1,1,1
+access_password_key_mass_update,access_password_key_mass_update,model_password_key_mass_update,base.group_user,1,1,1,1
+access_update_password_tag,access_update_password_tag,model_update_password_tag,base.group_user,1,1,1,1

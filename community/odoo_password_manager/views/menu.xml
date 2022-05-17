@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <menuitem name="Passwords"
+              id="menu_password_manager_main"
+              sequence="50"
+              groups="base.group_user"
+              web_icon="odoo_password_manager,static/description/icon.png"
+    />
+    <menuitem name="Passwords by Bundles"
+              id="menu_password_manager_bundles"
+              parent="menu_password_manager_main"
+              action="odoo_password_manager.password_bundle_action"
+              sequence="10"
+              groups="base.group_user"
+    />
+    <menuitem name="All Passwords"
+              id="menu_password_manager_all"
+              parent="menu_password_manager_main"
+              action="odoo_password_manager.password_key_action_all"
+              sequence="20"
+              groups="base.group_user"
+    />
+    <menuitem name="Configuration"
+              id="menu_password_manager_settings"
+              parent="menu_password_manager_main"
+              sequence="300"
+              groups="base.group_erp_manager"
+    />
+    <menuitem name="Tags"
+              id="menu_password_tags"
+              parent="menu_password_manager_settings"
+              sequence="290"
+              action="odoo_password_manager.password_tag_tag_action"
+    />
+    <menuitem name="Settings"
+              id="menu_password_manager_conf"
+              parent="menu_password_manager_settings"
+              sequence="300"
+              action="odoo_password_manager.res_config_settings_password_manager_action"
+    />
+
+</odoo>

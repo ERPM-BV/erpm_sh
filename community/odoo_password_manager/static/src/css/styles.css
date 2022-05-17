@@ -1,0 +1,238 @@
+/* Overload standard jstree styles */
+div.password_management_panel_body > .jstree-default .jstree-hovered {
+    background: transparent;
+    border-radius: 0px;
+    box-shadow: inset 0 0 1px #cccccc;
+}
+div.password_management_panel_body > .jstree-default .jstree-context {
+    background: transparent;
+    border-radius: 0px;
+    box-shadow: inset 0 0 1px #cccccc;
+}
+div.password_management_panel_body > .jstree-default .jstree-clicked {
+    background: transparent;
+    border-radius: 0px;
+    box-shadow: none;
+}
+/* Basic*/
+.password_management_hidden {
+    display: none !important;
+}
+@media screen and (max-width: 520px) {
+    .hidden_mobile {
+        display: none !important;
+    }
+}
+@media screen and (min-width: 520px) and (max-width: 840px) {
+    .hidden_tablet {
+        display: none !important;
+    }
+}
+@media screen and (max-width: 1050px) {
+    .hidden_under1000 {
+        display: none !important;
+    }
+}
+.passmann_functional_button {
+    cursor: pointer;
+}
+.passmann_functional_button:hover {
+    color: white;
+}
+.password_management_fullwidth {
+    width: 100% !important;
+}
+.password_management_halfwidth {
+    width: 50% !important;
+}
+.passmann_navigation_panel {
+    background-color: #212529;
+    display: block;
+    color: #dee2e6;
+    overflow: auto;
+}
+.password_management_panel_header {
+    color: #dee2e6;
+    width: 100%;
+    padding: 3% 0% 1% 8%;
+    font-size: 13pt;
+}
+.password_management_content {
+    display: block;
+    width: 100%;
+}
+.password_management_panel_body {
+    width: 100%;
+    padding-left: 1%;
+}
+.password_management_hr {
+    background-color: #dee2e6;
+    width: 100%;
+}
+.passmannclear {
+    font-size: 9pt;
+    padding-left: 3px;
+}
+.passmann_padding_top {
+    padding-top: 3%;
+}
+/* Kanban view*/
+.full_view_password {
+    color: #00A09D;
+}
+.password_kanban_view {
+    overflow: auto !important;
+    flex: 1 1;
+    position: relative !important;
+}
+.password_kanban_view > div.o_kanban_record {
+    flex: 1 1 !important;
+}
+.password_management_navigation_panel {
+    flex: 0 0 320px;
+}
+.password_management_right_navigation_panel {
+    flex: 0 0 320px;
+}
+.overall_passwords_selection {
+    max-height: 500px;
+    overflow: auto !important;
+}
+.password_management_panel_body_passwords {
+    width: 100%;
+    padding: 3% 2% 1% 8%;
+}
+.passmannselection_div {
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 3pt;
+}
+.passmannselection_options {
+    color: #dee2e6;
+    min-width: 150px;
+    max-width: 150px;
+    padding-left: 2%;
+    font-size: 11pt;
+    background-color: #2E2E2E;
+    border: none;
+}
+.passmannselection_options option {
+    color: #dee2e6;
+}
+ul.no_padding_passmannul {
+    padding-inline-start: 15px;
+}
+.add_passmannnode_button {
+    margin-right: 5%;
+    font-size: 9pt;
+    color: #dee2e6;
+    cursor: pointer;
+}
+.add_passmannnode_button:hover {
+    color: white;
+}
+.password_management_kanban_record {
+    box-shadow: none !important;
+}
+.password_management_kanban_record_bottom {
+    padding-top: 5px;
+}
+.passmannkanabanselected {
+    border: 2px solid #00A09D !important;
+    box-shadow: 2px 2px 2px 2px #6c757d !important;
+}
+.password_detail_label {
+    width: 25% !important;
+    vertical-align: middle;
+    padding-left: 0;
+}
+.password_detail_value {
+    width: 60% !important;
+    vertical-align: middle;
+    color: white;
+}
+.password_detail_btns {
+    width: 15% !important;
+    vertical-align: middle;
+    color: white;
+}
+.input_password_detail {
+    background-color: #2E2E2E;
+    border: 1px solid transparent;
+    color: white;
+    padding: 2px;
+}
+.password_detail_value > div {
+    padding-top: 5px;
+    padding-left: 5px;
+    background-color: #2E2E2E;
+    overflow: auto;
+}
+.detail_password_button {
+    margin-right: 1%;
+    font-size: 9pt;
+    color: #dee2e6;
+    cursor: pointer;
+}
+.detail_password_button:hover {
+    color: white;
+}
+.white-hover:hover {
+    color: white;
+}
+/* Widgets */
+.show_hide_password {
+    padding: 0;
+    cursor: pointer;
+    width: 12px !important;
+    vertical-align: top;
+    margin-left: -15px;
+    z-index: 9999;
+    &::before { // seems to be useful for some old browser
+        position: relative;
+    }
+}
+.clipboard_password {
+    padding: 0;
+    cursor: pointer;
+    width: 12px !important;
+    vertical-align: top;
+    margin-left: -30px;
+    z-index: 9999;
+    &::before { // seems to be useful for some old browser
+        position: relative;
+    }
+}
+.generate_password {
+    padding: 0;
+    cursor: pointer;
+    width: 12px !important;
+    vertical-align: top;
+    margin-left: -30px;
+    z-index: 9999;
+    &::before { // seems to be useful for some old browser
+        position: relative;
+    }
+}
+.o_field_password {
+    padding-right: 55px;
+}
+.o_field_copy_clipboard {
+    padding-right: 20px;
+}
+.o_field_copyurl_clipboard {
+    padding-right: 35px;
+}
+.starsmall {
+    font-size: 1.0em !important;
+}
+.favouricon {
+    padding: 0 3px;
+}
+.empty_height {
+    height: 1px;
+    width: 10px;
+}
+.password-overalyed {
+    overflow-wrap: anywhere;
+}

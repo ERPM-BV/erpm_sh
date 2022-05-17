@@ -1,0 +1,20 @@
+[submodule "oca/server-tools"]
+	path = oca/server-tools
+	url = https://github.com/oca/server-tools
+	branch = 15.0
+[submodule "oca/partner-contact"]
+	path = oca/partner-contact
+	url = https://github.com/OCA/partner-contact.git
+	branch = 15.0
+[submodule "oca/l10n-netherlands"]
+	path = oca/l10n-netherlands
+	url = https://github.com/oca/l10n-netherlands
+	branch = 15.0
+[submodule "oca/web"]
+	path = oca/web
+	url = https://github.com/OCA/web.git
+	branch = 15.0
+[submodule "oca/social"]
+	path = oca/social
+	url = https://github.com/OCA/social.git
+	branch = 15.0

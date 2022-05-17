@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="bundle_login_wizard_form_view"  model="ir.ui.view">
+        <field name="name">bundle.login.form.view</field>
+        <field name="model">bundle.login</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="bundle_id" invisible="1"/>
+                    <field name="password" 
+                           password="True"
+                           widget="bundlePassword"
+                    />
+                </group>
+            </form>
+        </field>
+    </record>
+
+</odoo>
